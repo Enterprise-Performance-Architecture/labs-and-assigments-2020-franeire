@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CA1 - Docker</title>
+</head>
+<body>
+
+<h1>Student Name: Fran Kennedy</h1>
+<h5>Student Number: X00063159</h5>
+
+<p>Docker Tutorial</p>
+
+Docker is a platform that allows developers to organise and develop applications without the use of virtualisation. This is achieved by using whats known as containerisation.
+Containerisation is a type of virtualisation, but one based on the OS instead of the hardware.<br>
+
+<br>Docker uses three key areas:
+
+<h5>Dockerfile</h5>
+This is a file that contains the commands used to create an image. Users can build these images using the <i>Docker build</i> command.
+
+<h5>Images</h5>
+The docker image is basically a template that can create containers.
+
+<h5>Containers</h5>
+These are the applications built using the docker images.
+
+Creating the Dockerfile is the first step in using docker. The command to do this is:<br><br>
+<i>nano Dockerfile</i> (it must have a capital D). The dockerfile used in this CA is below
+<p><i>FROM python:3<br>
+WORKDIR /<br>
+COPY index.html /test<br>
+CMD python -m http.server 8080</i></p><br>
+
+<p>Docker build .<br>
+Once this has been run, the docker image has been created and can be viewed using the <i>docker images</i> command</p>
+<p>Docker run<br>
+To build the container we based on our docker image, we need to run a command like the below:<br><br>
+docker run --rm -it --name my-docker-image -p 8080:8080 my-docker-image<br><br>
+This makes sure the container is interactive, names it "my-docker-image", uses port forwarding on 8080 and the image ID.
+</p>
+
+<hr>
+
+<p>How I completed the CA</p>
+<ul>
+    <li>The first step was to create a folder called CA1, this would contain the Dockerfile and index.html
+        <ul><li>mkdir CA1</li>
+        <li>cd CA1</li></ul></li>
+    <li>In the CA1 folder, I created my dockerfile, using <i>nano Dockerfile</i> and as described above, it had 4 lines of code
+    and created a HTTP server on port 80, and copied one HTML file.</li>
+    <li>I then built my docker image using the below command:<br>
+        <ul><li>docker build -t my-docker-image</li></ul></li>
+    <li>I then built the container, using the below command:<br>
+        <ul><li>docker run --rm -it --name my-docker-image -p 8080:8080 my-docker-image</li></ul></li>
+    <li>I then exported it to the GitHub Repository under the CA1 folder
+        <ul>
+            <li>git init</li>
+            <li>git add CA1</li>
+            <li>git commit -m "CA1 Commit"</li>
+            <li>git push -f https://github.com/Enterprise-Performance-Architecture/labs-and-assigments-2020-franeire.git</li>
+        </ul></li>
+</ul>
+<hr>
+
+<table width="100%">
+
+<th colspan="3">Useful resources to learn and use Docker</th>
+
+<tr align="center"><td><a href="https://hub.docker.com/" target="_blank">Docker Hub</a></td><td>&nbsp</td><td><a href="https://github.com/" target="_blank">GitHub</a></td></tr>
+<tr align="center"><td><a href="https://www.tutorialspoint.com/docker/index.htm" target="_blank">Docker Tutorial</a></td><td>&nbsp</td><td><a href="https://docker-curriculum.com/" target="_blank">Docker tutorial for beginners</a></td></tr>
+
+</table>
+
+</body>
+</html> 
